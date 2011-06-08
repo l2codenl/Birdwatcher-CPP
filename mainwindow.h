@@ -23,6 +23,7 @@ public:
     double frequency() const;
     double signalInterval() const;
 
+
 Q_SIGNALS:
     void amplitudeChanged(double);
     void frequencyChanged(double);
@@ -36,4 +37,5 @@ private:
     AttitudeIndicator *d_attitude;
     SpeedoMeter *d_speedo;
     Plot *d_plot;
+    void changeSpeed();
 };

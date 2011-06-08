@@ -1,6 +1,7 @@
 #include <qapplication.h>
 #include "mainwindow.h"
 #include "samplingthread.h"
+#include "simulationthread.h"
 #include <QPalette>
 #include <QTabWidget>
 int main(int argc, char **argv)
@@ -15,6 +16,7 @@ int main(int argc, char **argv)
     samplingThread.setAmplitude(window.amplitude());
     samplingThread.setInterval(window.signalInterval());
 
+
     window.connect(&window, SIGNAL(frequencyChanged(double)),
         &samplingThread, SLOT(setFrequency(double)));
     window.connect(&window, SIGNAL(amplitudeChanged(double)),
@@ -24,7 +26,8 @@ int main(int argc, char **argv)
 
     window.show();
 
-    samplingThread.start();
+    samplingThread.start();;
+
     window.start();
 
     bool ok = app.exec();

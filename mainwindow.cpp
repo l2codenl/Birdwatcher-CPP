@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent):
     QTimer *timer = new QTimer(d_speedo);
     timer->connect(timer, SIGNAL(timeout()),
         this, SLOT(changeSpeed()));
-    timer->start(50);
+    timer->start();
 
     sdial = d_speedo;
 
@@ -112,3 +112,15 @@ double MainWindow::signalInterval() const
 {
     return d_timerWheel->value();
 }
+
+void MainWindow::changeSpeed()
+{
+
+    if(d_speedo->value() > 1900){
+        d_speedo->setValue(d_speedo->value() - 100);
+    } else if(d_speedo->value() < 400) {
+        d_speedo->setValue(d_speedo->value() + 100);
+    }
+
+}
+

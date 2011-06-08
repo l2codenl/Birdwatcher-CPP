@@ -28,7 +28,6 @@ Plot::Plot(QWidget *parent):
 
     canvas()->setPaintAttribute(QwtPlotCanvas::BackingStore, false);
 
-
 #if defined(Q_WS_X11)
     // Even if not recommended by TrollTech, Qt::WA_PaintOutsidePaintEvent
     // works on X11. This has a nice effect on the performance.
@@ -66,6 +65,7 @@ Plot::Plot(QWidget *parent):
     grid->enableY(true);
     grid->enableYMin(false);
     grid->attach(this);
+
 
     d_origin = new QwtPlotMarker();
     d_origin->setLineStyle(QwtPlotMarker::Cross);
